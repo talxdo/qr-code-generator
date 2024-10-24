@@ -1,5 +1,5 @@
 <div class="flex items-center justify-center min-h-screen">
-<div class="qr-component w-80 p-6 bg-white rounded-lg shadow-lg">
+<div class="qr-component w-80 p-6 bg-white rounded-lg shadow-lg" [ngClass]="{'rotate-scale-down-vertical': showQr}">
     <div class="qr-form">
         <form [formGroup]="myForm" (ngSubmit)="generateQr()">
             <div class="mb-5">
@@ -18,13 +18,21 @@
             <button 
             type="submit"
             [disabled]="myForm.invalid" 
-            class=" mt-0 text-white disabled:bg-gray-300 bg-purple-800 hover:bg-purple-500 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center">
+            class=" mt-0 text-white disabled:bg-gray-300 bg-purple-800 hover:bg-purple-500 focus:ring-4 focus:ring-purple-300 w-full font-medium rounded-lg text-lg px-5 py-2.5 text-center">
                 Generate
+            </button>
+            <button 
+                type="button" 
+                (click)="resetQr()"
+                [disabled]="!myForm.get('url')?.value" 
+                class="mt-3 text-white disabled:bg-gray-300 bg-violet-800 hover:bg-violet-500 focus:ring-4 focus:ring-violet-300 w-full font-medium rounded-lg text-lg px-5 py-2.5 text-center">
+                Reset
             </button>
         </form>
     </div>
     <div class="qr-code mt-6 flex justify-center">
-        <qrcode 
+        <qrcode
+            *ngIf="showQr"
             [qrdata]="myAngularxQrCode" 
             [width]="256" 
             [errorCorrectionLevel]="'M'"></qrcode>
