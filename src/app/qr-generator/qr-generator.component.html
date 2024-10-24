@@ -2,8 +2,8 @@
 <div class="qr-component w-80 p-6 bg-white rounded-lg shadow-lg">
     <div class="qr-form">
         <form [formGroup]="myForm" (ngSubmit)="generateQr()">
-            <div class="mb-6">
-                <label for="url" class="font-medium text-gray-900 block mb-2 text-lg">Your URL</label>
+            <div class="mb-5">
+                <label for="url" class="font-medium text-gray-900 block mb-1 text-xl">Your URL</label>
                 <input type="text" 
                 id="url" 
                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:purple-blue-500 focus:border-purple-500 block w-full p-2.5" 
@@ -12,13 +12,13 @@
                 formControlName="url"
                 name="url">
             </div> 
-            <div *ngIf="myForm.invalid && !myForm.pristine" class="mt-0 bg-red-200 rounded-lg p-2">
+            <div *ngIf="myForm.invalid && !myForm.pristine" class="mb-0 bg-red-200 rounded-lg p-2 text-center text-lg">
                 Required Field!
             </div><br>
             <button 
             type="submit"
             [disabled]="myForm.invalid" 
-            class="text-white disabled:bg-gray-300 bg-purple-800 hover:bg-purple-500 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+            class=" mt-0 text-white disabled:bg-gray-300 bg-purple-800 hover:bg-purple-500 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center">
                 Generate
             </button>
         </form>
