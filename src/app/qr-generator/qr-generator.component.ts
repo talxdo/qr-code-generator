@@ -20,17 +20,22 @@ export class QrGeneratorComponent {
 
   public myAngularxQrCode: string = "";
   showQr : boolean = false;
+  resQr : boolean = false;
 
   generateQr(){
     this.myAngularxQrCode = this.myForm.get('url')?.value || "";
     this.showQr = false;
     setTimeout(() => {
       this.showQr = true;
-    }, 0.4);
+    }, 400);
 
   }
   resetQr(){
+    this.resQr = true;
     this.myForm.reset();
     this.showQr = false;
+    setTimeout(() => {
+      this.resQr = false;
+    }, 400);
   }
 }

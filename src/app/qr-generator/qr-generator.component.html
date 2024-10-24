@@ -1,5 +1,5 @@
 <div class="flex items-center justify-center min-h-screen">
-<div class="qr-component w-80 p-6 bg-white rounded-lg shadow-lg" [ngClass]="{'rotate-scale-down-vertical': showQr}">
+<div class="qr-component w-80 p-6 bg-white rounded-lg shadow-lg" [ngClass]="{'rotate-scale-down-vertical': showQr, 'rotate-scale-down' : resQr }"  >
     <div class="qr-form">
         <form [formGroup]="myForm" (ngSubmit)="generateQr()">
             <div class="mb-5">
